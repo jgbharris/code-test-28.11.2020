@@ -59,7 +59,7 @@ export default function App() {
         <input className="integer-input" onChange={(event) => setInput(event.target.value)} />
       </div>
 
-      <h2 className="section-title">Trades:</h2>
+      <h2 className="section-title trades">Trades:</h2>
       <JSONPretty
         id="json-pretty"
         style={{
@@ -73,7 +73,7 @@ export default function App() {
         valueStyle="font-size:1.5em"
       ></JSONPretty>
 
-      <h2 className="section-title">Filtered Trades:</h2>
+      <h2 className="section-title filteredTrades">Filtered Trades:</h2>
       <JSONPretty
         id="json-pretty"
         style={{
