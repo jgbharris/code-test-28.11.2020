@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import JSONPretty from "react-json-pretty";
+import Header from "./Header.js";
 import "react-json-pretty/themes/monikai.css";
 import "./styles.css";
 /* eslint-disable no-unused-expressions */
@@ -37,7 +38,10 @@ export default function App() {
     console.log(input)
     console.log("filteredArray")
     console.log(filteredArray)
-    result > input ? null : filteredArray.push(tradeIdArray[i])};
+    result > input ? null : filteredArray.push(tradeIdArray[i])
+  };
+
+
 
   let newTrades = filteredArray.map(function (elem) {
     return {
@@ -52,17 +56,21 @@ export default function App() {
 
   return (
     <div className="App">
-      <h2>Integer input</h2>
-      <input onChange={(event) => setInput(event.target.value)} />
+      <Header
+        title="Trade Filter" />
 
-      <h2>Trades</h2>
+      <div className="integer-input-container">
+        <h2>Integer input</h2>
+        <input className="integer-input" onChange={(event) => setInput(event.target.value)} />
+      </div>
+
+
+      <h2 className="section-title">Trades:</h2>
       <JSONPretty
         id="json-pretty"
         style={{
           fontSize: "1.1em",
-          // width: "40%",
           display: "inline",
-          // float: "left",
           marginRight: "30px"
         }}
         data={trades}
@@ -70,15 +78,14 @@ export default function App() {
         mainStyle="padding:1em"
         valueStyle="font-size:1.5em"
       ></JSONPretty>
-      <h2>Filtered Trades</h2>
+      <h2 className="section-title">Filtered Trades:</h2>
       <JSONPretty
         id="json-pretty"
         style={{
           fontSize: "1.1em"
-          // width: "40%",
-          // display: "inline"
         }}
         data={newTrades}
+        theme={JSONPrettyMon}
         mainStyle="padding:1em"
         valueStyle="font-size:1.5em"
       ></JSONPretty>
