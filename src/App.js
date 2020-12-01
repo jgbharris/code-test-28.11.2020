@@ -7,7 +7,11 @@ import "./styles.css";
 
 export default function App() {
   const [input, setInput] = useState(0);
+
   console.log(input);
+
+  //Added more trades into array to manually test
+
   let trades = [
     { "trade-id": "FERG" },
     { "trade-id": "FERG" },
@@ -32,12 +36,6 @@ export default function App() {
 
   for (let i = 0; i < tradeIdArray.length; i++) {
     let result = getOccurrence(tradeIdArray, tradeIdArray[i]);
-    console.log("result")
-    console.log(result)
-    console.log("input")
-    console.log(input)
-    console.log("filteredArray")
-    console.log(filteredArray)
     result > input ? null : filteredArray.push(tradeIdArray[i])
   };
 
@@ -48,9 +46,6 @@ export default function App() {
       "trade-id": elem
     };
   });
-
-  console.log("newTrades");
-  console.log(newTrades);
 
   let JSONPrettyMon = require("react-json-pretty/dist/monikai");
 
@@ -63,7 +58,6 @@ export default function App() {
         <h2>Integer input</h2>
         <input className="integer-input" onChange={(event) => setInput(event.target.value)} />
       </div>
-
 
       <h2 className="section-title">Trades:</h2>
       <JSONPretty
@@ -78,6 +72,7 @@ export default function App() {
         mainStyle="padding:1em"
         valueStyle="font-size:1.5em"
       ></JSONPretty>
+
       <h2 className="section-title">Filtered Trades:</h2>
       <JSONPretty
         id="json-pretty"
@@ -89,6 +84,7 @@ export default function App() {
         mainStyle="padding:1em"
         valueStyle="font-size:1.5em"
       ></JSONPretty>
+
     </div>
   );
 }
